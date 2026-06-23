@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weather App</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f4f4;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.container{
+    background:rgb(24, 21, 21);
+    color: white;
+    padding:20px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 0 10px gray;
+}
+
+input{
+    padding:10px;
+    width:200px;
+}
+
+button{
+    padding:10px;
+    margin-left:5px;
+}
+
+#result{
+    margin-top:20px;
+    font-size:18px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Weather App</h2>
+
+    <input type="text" id="city" placeholder="Enter City Name">
+    <button onclick="showWeather()">Check Weather</button>
+
+    <div id="result"></div>
+</div>
+
+<script>
+function showWeather() {
+
+    let city = document.getElementById("city").value.toLowerCase();
+
+    let weatherData = {
+        delhi: "Temperature: 38°C, Sunny",
+        mumbai: "Temperature: 31°C, Humid",
+        lucknow: "Temperature: 36°C, Cloudy",
+        kanpur: "Temperature: 37°C, Sunny",
+        jaipur: "Temperature: 40°C, Hot",
+        rohtak: "Temperature: 35°C, Partly Cloudy"
+    };
+
+    if(weatherData[city]){
+        document.getElementById("result").innerHTML =
+            "<h3>" + city.toUpperCase() + "</h3><p>" +
+            weatherData[city] + "</p>";
+    } else {
+        document.getElementById("result").innerHTML =
+            "<p>City data not available!</p>";
+    }
+}
+</script>
+ <script src="./script.js"></script>
+</body>
+</html>
